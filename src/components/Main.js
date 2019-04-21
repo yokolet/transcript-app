@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import 'materialize-css/dist/css/materialize.min.css';
+import './Main.css';
 
-class App extends Component {
+class Main extends Component {
   render() {
     return (
       <div className="App">
@@ -26,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
