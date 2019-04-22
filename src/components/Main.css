@@ -31,3 +31,19 @@
     transform: rotate(360deg);
   }
 }
+
+.Main {
+  margin-top: 10px;
+}
+
+.Result {
+  text-align: left;
+}
+
+.Result-header {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-size: calc(15px + 2vmin);
+  color: #888888;
+}
