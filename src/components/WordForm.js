@@ -3,22 +3,22 @@ import PropTypes from 'prop-types'
 import M from 'materialize-css';
 import './Main.css';
 
-class SongTitles extends Component {
+class WordForm extends Component {
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
-    this.state = { songs: '' }
+    this.state = { words: '' }
   }
 
   onSubmit = (event) => {
     event.preventDefault()
-    let someSongs = false;
-    if (this.state.songs.length < 1) {
-      M.toast({html: 'Song list is empty'})
+    let someWords = false;
+    if (this.state.words.length < 1) {
+      M.toast({html: 'Word list is empty'})
     } else {
-      someSongs = true
+      someWords = true
     }
-    if (someSongs) {
+    if (someWords) {
       this.props.onSubmit(this.state)
     }
   }
@@ -34,24 +34,28 @@ class SongTitles extends Component {
           <div className="row">
             <div className="input-field col s12">
               <textarea
-                id="songs"
+                id="words"
                 className="materialize-textarea"
-                value={this.state.songs}
-                onChange={e => this.setState({ songs: e.target.value })}
+                value={this.state.words}
+                onChange={e => this.setState({ words: e.target.value })}
               ></textarea>
-              <label htmlFor="songs">Songs</label>
+              <label htmlFor="words">English Words</label>
             </div>
           </div>
-          <button className="btn-small waves-effect waves-light right" type="submit" name="action">Search</button>
+          <button className="btn-small waves-effect waves-light right"
+                  type="submit"
+                  name="action">
+            Transcript
+          </button>
         </form>
       </div>
     );
   }
 }
 
-SongTitles.propTypes = {
-  songs: PropTypes.string,
+WordForm.propTypes = {
+  words: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
 }
 
-export default SongTitles;
+export default WordForm;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import './Main.css';
 import Results from './Results';
-import SongTitles from './SongTitles';
+import WordForm from './WordForm';
 
 class Main extends Component {
   constructor(props) {
@@ -10,16 +10,16 @@ class Main extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit = ({songs}) => {
-    let songList = songs.split("\n");
-    console.log(songList);
+  onSubmit = ({words}) => {
+    let wordList = words.split("\n");
+    console.log(wordList);
   }
 
   render() {
     return (
       <div className="row Main">
         <div className="col s3">
-          <SongTitles onSubmit={this.onSubmit}/>
+          <WordForm onSubmit={this.onSubmit}/>
         </div>
         <div className="col s9">
           <Results />
