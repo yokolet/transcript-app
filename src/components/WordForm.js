@@ -7,18 +7,18 @@ class WordForm extends Component {
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
-    this.state = { words: '' }
+    this.state = { text: '' }
   }
 
   onSubmit = (event) => {
     event.preventDefault()
-    let someWords = false;
-    if (this.state.words.length < 1) {
+    let someText = false;
+    if (this.state.text.length < 1) {
       M.toast({html: 'Word list is empty'})
     } else {
-      someWords = true
+      someText = true
     }
-    if (someWords) {
+    if (someText) {
       this.props.onSubmit(this.state)
     }
   }
@@ -36,8 +36,8 @@ class WordForm extends Component {
               <textarea
                 id="words"
                 className="materialize-textarea"
-                value={this.state.words}
-                onChange={e => this.setState({ words: e.target.value })}
+                value={this.state.text}
+                onChange={e => this.setState({ text: e.target.value })}
               ></textarea>
               <label htmlFor="words">English Words</label>
             </div>
@@ -54,7 +54,7 @@ class WordForm extends Component {
 }
 
 WordForm.propTypes = {
-  words: PropTypes.string,
+  text: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
 }
 

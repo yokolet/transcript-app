@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import './Main.css';
 import Results from './Results';
 import WordForm from './WordForm';
+import { createWordList } from '../utils/helper';
 
 class Main extends Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class Main extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit = ({words}) => {
-    let wordList = words.split("\n");
+  onSubmit = ({text}) => {
+    let wordList = createWordList(text)
     console.log(wordList);
   }
 

@@ -5,7 +5,7 @@ class Results extends Component {
   render() {
     return (
       <div className="Result">
-        <div className="Result-header">Search Result</div>
+        <div className="Result-header">Result</div>
       </div>
     );
   }
