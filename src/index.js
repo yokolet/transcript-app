@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import './index.css';
 import App from './components/App';
 import reducer from './reducers';
 import * as serviceWorker from './serviceWorker';
+
+const client = new ApolloClient({uri: process.env.REACT_APP_ENDPOINT});
 
 const logger = store => next => action => {
   console.group(action.type)
@@ -25,9 +29,11 @@ const store = createStore(
 
 const Root = props => {
   return (
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ApolloProvider>
   )
 }
 
