@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateWordList } from '../actions/update_wordlist';
 import PropTypes from 'prop-types'
 import M from 'materialize-css';
 import './Main.css';
@@ -19,7 +21,7 @@ class WordForm extends Component {
       someText = true
     }
     if (someText) {
-      this.props.onSubmit(this.state)
+      this.props.updateWordList(this.state.text);
     }
   }
 
@@ -55,7 +57,14 @@ class WordForm extends Component {
 
 WordForm.propTypes = {
   text: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired,
 }
 
-export default WordForm;
+const mapStateToProps = state => ({
+  text: state.text,
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateWordList: (text) => dispatch(updateWordList(text))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WordForm);

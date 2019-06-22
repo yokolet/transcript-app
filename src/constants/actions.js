@@ -1,0 +1,2 @@
+export const TRANSCRIPTS = 'TRANSCRIPTS'
+export const WORDLIST = 'WORDLIST'

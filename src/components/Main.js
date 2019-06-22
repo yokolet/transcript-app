@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import './Main.css';
 import Results from './Results';
 import WordForm from './WordForm';
-import { createWordList } from '../utils/helper';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit = ({text}) => {
-    let wordList = createWordList(text)
-    console.log(wordList);
-  }
-
   render() {
     return (
       <div className="row Main">
@@ -28,9 +16,6 @@ class Main extends Component {
       </div>
     );
   }
-}
-
-Main.propTypes = {
 }
 
 export default Main;

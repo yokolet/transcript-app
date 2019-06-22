@@ -8,7 +8,7 @@ export const createWordList = (text) => {
       w = ''
       wordFlag = false
     }
-    if(text[i] == ' ' || text[i] == '\n'){
+    if(text[i] === ' ' || text[i] === '\n'){
       wordFlag = true
     }else{
       wordFlag = false
