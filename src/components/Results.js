@@ -14,25 +14,45 @@ class Results extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     const { words, data, updateTranscripts } = this.props;
-    console.log('did update' + words);
-    console.log(prevProps)
-    console.log(this.props)
     if(prevProps.words !== this.props.words) {
       data.fetchMore({
         variables: { words },
         updateQuery: (prev, { fetchMoreResult }) => {
-          console.log('fetchMoreResult')
-          console.log(fetchMoreResult)
           updateTranscripts(fetchMoreResult.transcripts)
         }
       })
     }
   }
 
+  renderHeader() {
+    const { katakana } = this.props.transcripts
+    if(katakana.length === 0){
+      return <th>Transcription</th>
+    }else{
+      let sizes = katakana.map(e => e.length)
+      let max_size = Math.max(...sizes)
+      let header = Array.from(Array(max_size).keys())
+      if(max_size === 1){
+        return <th>Transcription</th>
+      }else{
+        return header.map(h => {
+          return <th key={h}>Transcription{h+1}</th>
+        })
+      }
+    }
+  }
+
   renderResults() {
     const { english, katakana } = this.props.transcripts
     return english.map(function(e, i) {
-      return <li key={e}>{e}: {katakana[i].join()}</li>
+      return <tr key={e}>
+        <td>{e}</td>
+        {
+          katakana[i].map(k => {
+            return <td key={k}>{k}</td>
+          })
+        }
+      </tr>
     })
   }
 
@@ -40,9 +60,17 @@ class Results extends Component {
     return (
       <div className="Result">
         <div className="Result-header">Result</div>
-        <ul>
-          {this.renderResults()}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>English</th>
+              {this.renderHeader()}
+            </tr>
+          </thead>
+          <tbody>
+            {this.renderResults()}
+          </tbody>
+        </table>
       </div>
     );
   }

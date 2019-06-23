@@ -1,5 +1,3 @@
-import { redBright } from "ansi-colors";
-
 export const stripPunctuation = (word) => {
   let punctuations = ['.', ',', ':', '!', '?', '"'];
   let left = 0
