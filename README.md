@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## English to Katakana Transcription GraphQL App
 
-## Available Scripts
+This repository is a ReactJS GraphQL App for an Engish to Katakana Transcription, which is
+developed in another repository, [https://github.com/yokolet/transcript](https://github.com/yokolet/transcript).
+The [transcript](https://github.com/yokolet/transcript) repository is a place for the main logic of transcription.
+The GraphQL endpoint is developed in [https://github.com/yokolet/transcript-web](https://github.com/yokolet/transcript-web)
+repository. This ReactJS app is making a GraphQL request to [transcript-web](https://github.com/yokolet/transcript-web) endpoint.
 
-In the project directory, you can run:
+The ReactJS App is live at [https://morning-lowlands-77742.herokuapp.com/](https://morning-lowlands-77742.herokuapp.com/).
 
-### `npm start`
+### How to Use
 
-Runs the app in the development mode.<br>
+Input English words, space, comma or newline separated or mixture of those in the left field.
+Click the `Transcript` button, then the transcription(s) will show up on the right side.
+
+If the word doesn't exist in the dictionary, `E_DIC` error code will be returned.
+If the word caused a trouble to transcript, `E_KEY` error will be returned.
+
+The dictionary has multiple pronunciations for some words. In such a case, multiple transcriptions will be returned.
+It happens the same katakana transcripts show up for a single English word. A couple of reasons are there.
+The dictionary may have the same IPA phonetics for the word just the difference of accent. Japanese sound doesn't have
+an accent, so the accent symbol was removed in the pre-processing. The dictionary may have acutually different IPA phonetics. However, while processing vowels and consonants, those may have become the same.
+Lastly, the dictionary may have had exactly the same IPA phonetics for the word.
+
+
+The transcription logic is explained in the repository, [https://github.com/yokolet/transcript](https://github.com/yokolet/transcript). Please visit for the details of transcription.
+
+
+## Develpment
+
+### Installation
+
+```bash
+$ yarn install
+
+or
+
+$ npm install
+```
+
+### GraphQL Endpoint
+
+The GraphQL endpoint should be set as environment variable, `REACT_APP_ENDPOINT`.
+Set the parameter before running the app.
+
+```bash
+[bash example]
+
+export REACT_APP_ENDPOINT=http://localhost:5000
+```
+
+### Start the node server
+
+```bash
+$ yarn start
+
+or
+
+$ npm start
+```
+
+The command above starts the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## URL
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app is live at:
 
-### `npm run build`
+- [https://morning-lowlands-77742.herokuapp.com/](https://morning-lowlands-77742.herokuapp.com/)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Credits
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Yoko Harada (@yokolet)
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The MIT License (MIT)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Copyright (c) 2019 Yoko Harada
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
