@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './components/App';
 import reducer from './reducers';
@@ -31,7 +32,7 @@ const Root = props => {
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <App />
+        <BrowserRouter><App /></BrowserRouter>
       </Provider>
     </ApolloProvider>
   )

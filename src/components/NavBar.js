@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -7,12 +8,12 @@ export default () => {
         <div className="row">
           <div className="col s12">
             <div className="nav-wrapper">
-              <a href="#!" className="brand-logo">Transcript English to Katakana</a>
+              <Link to="/" className="brand-logo">Transcript English to Katakana</Link>
               <a href="#" data-target="mobile-demo" className="sidenav-trigger">
                 <i className="material-icons">menu</i>
               </a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="about.html">About</a></li>
+                <li><Link to="/about">About</Link></li>
               </ul>
             </div>
         </div>
@@ -20,7 +21,7 @@ export default () => {
       </nav>
 
       <ul className="sidenav" id="mobile-demo">
-        <li><a href="about.html">About</a></li>
+        <li><Link to="/about">About</Link></li>
       </ul>
     </div>
   )

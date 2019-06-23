@@ -48,6 +48,20 @@
   color: #888888;
 }
 
+.About {
+  margin: 20px 50px 30px 50px;
+}
+
+.about-header {
+  color: #ee6e73;
+}
+
+.about-content {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #616161;
+}
+
 nav
   .brand-logo {
     font-size: 1.5rem;
