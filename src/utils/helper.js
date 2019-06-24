@@ -1,5 +1,5 @@
 export const stripPunctuation = (word) => {
-  let punctuations = ['.', ',', ':', '!', '?', '"', '”'];
+  let punctuations = ['.', ',', ':', '!', '?', '"', '“', '”'];
   let left = 0
   let right = word.length - 1
   while(punctuations.indexOf(word[left]) >= 0) {
@@ -34,4 +34,8 @@ export const createWordList = (text) => {
     wordList.push(w)
   }
   return wordList
+}
+
+export const getRandNumber = () => {
+  return Math.floor(Math.random() * 500 + 1)
 }

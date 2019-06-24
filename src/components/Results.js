@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import './Main.css';
 import { updateTranscripts } from '../actions/update_transcripts';
+import { getRandNumber } from '../utils/helper';
 
 class Results extends Component {
   constructor(props) {
@@ -45,11 +46,11 @@ class Results extends Component {
   renderResults() {
     const { english, katakana } = this.props.transcripts
     return english.map(function(e, i) {
-      return <tr key={e}>
+      return <tr key={e+getRandNumber()}>
         <td>{e}</td>
         {
           katakana[i].map(k => {
-            return <td key={k}>{k}</td>
+            return <td key={k+getRandNumber()}>{k}</td>
           })
         }
       </tr>
