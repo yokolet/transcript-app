@@ -48,7 +48,13 @@ class About extends Component {
             <div className='about-content'>
               For some words, IPA phonetics dictionary has multiple pronunciations.
               In such a case, multiple Katakana expressions will be displayed.
-              Exammple: <b>slanted</b>.
+              Example: <b>slanted</b>.
+            </div>
+            <div className='about-content'>
+              For some words, the same Katakana transcriptions appear multiple times. This happens when
+              IPA phonetics dictionary has multiple pronunciations, but while processing, those became the same.
+              For example, the word, "<b>english</b>," has two phonetics -- <b>ɪˈŋglɪʃ</b> and <b>ɪˈŋlɪʃ</b> .
+              After consonants processing, those became identical.
             </div>
             <div className='about-content'>
               <h4>Error Code</h4>
@@ -67,7 +73,7 @@ class About extends Component {
         <div className="row">
           <div className="col s12">
             <div className='about-content'>
-              This ReactJS app is one of trilogy of GitHub repository.
+              This ReactJS app resides in the trilogy of GitHub repositories.
               The transcription itself is in <b>transcript</b> repo.
               The web app to provide GraphQL endpoint is in <b>transcript-web</b> repo.
               This ReactJS app also a GraphQL client is in <b>transcript-app</b> repo.
