@@ -37,11 +37,12 @@ class WordForm extends Component {
             <div className="input-field col s12">
               <textarea
                 id="words"
+                maxLength="2000"
                 className="materialize-textarea"
                 value={this.state.text}
                 onChange={e => this.setState({ text: e.target.value })}
               ></textarea>
-              <label htmlFor="words">English Words</label>
+              <label htmlFor="words">English Words (up to 2000 characters)</label>
             </div>
           </div>
           <button className="btn-small waves-effect waves-light right"
