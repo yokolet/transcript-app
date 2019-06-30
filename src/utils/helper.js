@@ -1,5 +1,5 @@
 export const stripPunctuation = (word) => {
-  let punctuations = ['.', ',', ':', '!', '?', '"', '“', '”'];
+  let punctuations = ['.', ',', ':', '!', '?', '"', '“', '”', "(", ")", "-"];
   let left = 0
   let right = word.length - 1
   while(punctuations.indexOf(word[left]) >= 0) {
