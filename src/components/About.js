@@ -60,7 +60,7 @@ class About extends Component {
               <h4>Error Code</h4>
               <ul>
                 <li><i className="small material-icons">error</i> E_DIC: the words doesn't exist in the IPA phonetics dictionary</li>
-                <li><i className="small material-icons">error</i> E_KEY: while proceeing the word transcription, an error occurred</li>
+                <li><i className="small material-icons">error</i> E_KEY: while proceeing the word transcription, an error occurred (will be fixed later)</li>
               </ul>
             </div>
           </div>
@@ -73,7 +73,7 @@ class About extends Component {
         <div className="row">
           <div className="col s12">
             <div className='about-content'>
-              This ReactJS app resides in the trilogy of GitHub repositories.
+              This ReactJS app belongs to the trilogy of GitHub repositories.
               The transcription itself is in <b>transcript</b> repo.
               The web app to provide GraphQL endpoint is in <b>transcript-web</b> repo.
               This ReactJS app also a GraphQL client is in <b>transcript-app</b> repo.
